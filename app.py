@@ -19,7 +19,6 @@ import streamlit as st
 from StressUtils import utils
 
 utils.header()
-secrets = toml.load(".streamlit/secrets.toml")
 
 # Set environment variables (replace with your values)
 os.environ['DATABRICKS_HOST'] = st.secrets["databricks_credentials"]["databricks_host"]
