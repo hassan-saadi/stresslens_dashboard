@@ -20,9 +20,9 @@ from StressUtils import utils
 utils.header()
 
 # Set environment variables (replace with your values)
-os.environ['DATABRICKS_HOST'] = 'https://fcn-fiscalnote-workspace.cloud.databricks.com/'
-os.environ['DATABRICKS_TOKEN'] = 'dapi822b206f0db340f6930e70b6ebbe7cad'
-os.environ['DATABRICKS_CLUSTER_ID'] = '0119-170642-cihzqvrp'
+os.environ['DATABRICKS_HOST'] = st.secrets["databricks_credentials"]["databricks_host"]
+os.environ['DATABRICKS_TOKEN'] = st.secrets["databricks_credentials"]["databricks_token"]
+os.environ['DATABRICKS_CLUSTER_ID'] = st.secrets["databricks_credentials"]["databricks_cluster_id"]
 
 # Initialize Spark session
 spark = DatabricksSession.builder.profile("DEFAULT").getOrCreate()
