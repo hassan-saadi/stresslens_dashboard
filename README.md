@@ -1,0 +1,2 @@
+## Streamlit Dashboard App
+This repo contains code that gets data from databricks about StressLens scores and topics, and let the user interacts with an interface in order to obtain insightful plots about the data.
