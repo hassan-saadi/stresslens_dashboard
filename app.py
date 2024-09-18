@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib import colormaps
 import plotly.graph_objects as go
 import plotly.subplots as sp
+import toml
 
 import pandas as pd
 
@@ -18,11 +19,12 @@ import streamlit as st
 from StressUtils import utils
 
 utils.header()
+secrets = toml.load(".streamlit/secrets.toml")
 
 # Set environment variables (replace with your values)
-os.environ['DATABRICKS_HOST'] = st.secrets["databricks_credentials"]["databricks_host"]
-os.environ['DATABRICKS_TOKEN'] = st.secrets["databricks_credentials"]["databricks_token"]
-os.environ['DATABRICKS_CLUSTER_ID'] = st.secrets["databricks_credentials"]["databricks_cluster_id"]
+os.environ['DATABRICKS_HOST'] = secrets["databricks_credentials"]["databricks_host"]
+os.environ['DATABRICKS_TOKEN'] = secrets["databricks_credentials"]["databricks_token"]
+os.environ['DATABRICKS_CLUSTER_ID'] = secrets["databricks_credentials"]["databricks_cluster_id"]
 
 # Initialize Spark session
 spark = DatabricksSession.builder.profile("DEFAULT").getOrCreate()
